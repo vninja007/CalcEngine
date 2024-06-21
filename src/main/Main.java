@@ -19,6 +19,6 @@ public class Main {
 		Diffable c = b.deriv(0);
 		System.out.println(c);
 		System.out.println("Runtime: "+(System.currentTimeMillis()-start)+" ms");
-	}
+		}
 	
 }

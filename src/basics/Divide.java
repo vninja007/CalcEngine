@@ -49,4 +49,10 @@ public class Divide implements Diffable {
 	public String toString() {
 		return "(%s/%s)".formatted(left.toString(), right.toString());
 	}
+	public Diffable getLeft() {
+		return left;
+	}
+	public Diffable getRight() {
+		return right;
+	}
 }

@@ -58,7 +58,23 @@ public class Exponent implements Diffable {
 			if(((Constant) exp).getVal() == 1) {
 				return base;
 			}
+			
+			if(base instanceof Multiply) {
+				if(((Multiply) base).getLeft() instanceof Constant || ((Multiply) base).getRight() instanceof Constant) {
+					return new Multiply(new Exponent(((Multiply) base).getLeft(), exp), new Exponent(((Multiply) base).getRight(), exp));
+				}
+			}
+			if(base instanceof Divide) {
+				if(((Divide) base).getLeft() instanceof Constant || ((Divide) base).getRight() instanceof Constant) {
+					return new Divide(new Exponent(((Divide) base).getLeft(), exp), new Exponent(((Divide) base).getRight(), exp));
+				}
+			}
+			
+			
 		}
+		
+		
+		
 		return new Exponent(base, exp);
 	
 	}
