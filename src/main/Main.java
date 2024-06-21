@@ -5,8 +5,8 @@ import basics.*;
 public class Main {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
-		Diffable a = new Exponent(new Multiply(new Constant(4), new Variable('x')), new Constant(4));
-//		Diffable a = new Multiply(new Constant(4), new Multiply(new Variable('x'), new Variable('x')));
+//		Diffable a = new Exponent(new Multiply(new Constant(4), new Variable('x')), new Constant(4));
+		Diffable a = new Multiply(new Constant(4), new Multiply(new Variable('x'), new Variable('x')));
 //		Diffable a = new Exponent(new Variable('x'), new Constant(4));
 //		Diffable a = new Log(new Constant(3), new Variable('x'));
 //		Diffable a = new Exponent(new Constant(2), new Exponent(new Constant(2), new Variable('x')));

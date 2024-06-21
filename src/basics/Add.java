@@ -36,6 +36,7 @@ public class Add implements Diffable {
 		else if(right instanceof Constant) {
 			if(((Constant) right).getVal()==0) {return left;}
 		}
+		if(left.toString().equals(right.toString())) {return new Multiply(new Constant(2), left);}
 		return new Add(left, right);
 		
 		

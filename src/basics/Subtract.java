@@ -35,6 +35,7 @@ public class Subtract implements Diffable {
 		else if(right instanceof Constant) {
 			if(((Constant) right).getVal()==0) {return left;}
 		}
+		if(left.toString().equals(right.toString())) {return new Constant(0);}
 		return new Subtract(left, right);
 		
 		

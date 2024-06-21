@@ -44,6 +44,7 @@ public class Divide implements Diffable {
 				return new Constant(((Constant) left).getVal()/((Constant) right).getVal());
 			}
 		}
+		if(left.toString().equals(right.toString())) {return new Constant(1);}
 		return new Divide(left, right);
 	}
 	public String toString() {
