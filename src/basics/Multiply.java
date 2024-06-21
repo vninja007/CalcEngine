@@ -53,7 +53,6 @@ public class Multiply implements Diffable {
 				}
 			}
 		}
-
 		if(left.toString().equals(right.toString())) {return new Exponent(left,new Constant(2));}
 		return new Multiply(left, right);
 	}

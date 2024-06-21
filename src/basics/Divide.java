@@ -13,7 +13,7 @@ public class Divide implements Diffable {
 		this.right = right;
 	}
 	public Diffable deriv(int depth) {
-		Diffable nd =  new Divide(new Subtract(new Multiply(left.deriv(depth+1), right), new Multiply(left, right.deriv(depth+1))),new Multiply(right, right));
+		Diffable nd =  new Divide(new Subtract(new Multiply(left.deriv(depth+1), right), new Multiply(right.deriv(depth+1),left)),new Multiply(right, right));
 		if(depth==0) {
 			String past = "";
 			while(!past.equals(nd.toString())) { 

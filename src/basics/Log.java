@@ -15,9 +15,16 @@ public class Log implements Diffable {
 	public Diffable deriv(int depth) {		
 //		return new Divide(new Multiply(val.deriv(), base), new Multiply(val,base.deriv()));
 //		return new Divide(val.deriv(depth+1), new Multiply(val, new Constant(Math.log(base.eval(null)))));
-		if(val instanceof Constant) {return new Constant(0);}
+		if(val instanceof Constant && base instanceof Constant) {return new Constant(0);}
 		else { 
-			Diffable nd =  new Divide(val.deriv(depth+1), new Multiply(val, new Constant(Math.log(((Constant) base).getVal()))));
+			Diffable nd;
+			if(base instanceof Constant) {
+				 nd =  new Divide(val.deriv(depth+1), new Multiply(val, new Constant(Math.log(((Constant) base).getVal()))));
+			}
+			else {
+				 nd = new Divide(new Log(new Constant(Math.E),val),new Log(new Constant(Math.E),base)).deriv(depth+1);	
+			}
+			
 			if(depth==0) {
 				String past = "";
 				while(!past.equals(nd.toString())) { 
